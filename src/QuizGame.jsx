@@ -2,6 +2,10 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import Question from "./assets/Question";
+
+
+
+
 const QuizGame = ({ questionsArr }) => {
 
 
@@ -31,7 +35,7 @@ const QuizGame = ({ questionsArr }) => {
     return (
 
         <>
-            <h1>Welcome To The {oneQuestion.category} Trivia</h1>
+            <h1 class="display-1" >Welcome To The {oneQuestion.category} Trivia</h1>
             <div>
                 {oneQuestion && (
                     <Question

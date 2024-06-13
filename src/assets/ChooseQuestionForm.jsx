@@ -4,6 +4,10 @@ import axios from "axios";
 import { getToken, apiCategories } from "../getToken";
 import { trivia_categories } from "../TriviaCategories";
 import { useNavigate } from "react-router-dom";
+import "./ChooseQuestionForm.css";
+
+
+
 const ChooseQuestionsForm = ({ handleQuestions }) => {
 
 
@@ -51,29 +55,29 @@ const ChooseQuestionsForm = ({ handleQuestions }) => {
     return (
         <>
 
-            <h1>PICK YOUR TRIVIA</h1>
+            <h1 className="question-form-h1">PICK YOUR TRIVIA</h1>
 
+            <div class="d-flex justify-content-center align-items-center  " >
+                <form className="questions-form" onSubmit={handleSubmit}>
+                    <label className="questions-form-label" htmlFor="category">Select Category:</label>
+                    <select class="form-select" aria-label="Default select example" id="category" onChange={handleInputChange} name="category" value={inputValue.category}>
+                        <option value="">Select</option>
+                        {categories.map((category) => (
+                            <option key={category.id} value={category.name}>{category.name}</option>
+                        ))}
+                    </select>
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="category">Select Category:</label>
-                <select id="category" onChange={handleInputChange} name="category" value={inputValue.category}>
-                    <option value="">Select</option>
-                    {categories.map((category) => (
-                        <option key={category.id} value={category.name}>{category.name}</option>
-                    ))}
-                </select>
+                    <label htmlFor="difficulty" className="questions-form-label">Select Difficulty:</label>
+                    <select class="form-select" aria-label="Default select example" id="difficulty" onChange={handleInputChange} name="difficulty" value={inputValue.difficulty}>
+                        <option value="">Select</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
 
-                <label htmlFor="difficulty">Select Difficulty:</label>
-                <select id="difficulty" onChange={handleInputChange} name="difficulty" value={inputValue.difficulty}>
-                    <option value="">Select</option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-
-                <button type="submit">Ready</button>
-            </form>
-
+                    <button class="btn btn-info m-2" type="submit">Ready</button>
+                </form>
+            </div>
             <p>Category: {inputValue.category}, Difficulty: {inputValue.difficulty}</p>
 
 

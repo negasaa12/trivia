@@ -1,0 +1,22 @@
+.questions-form {
+
+    text-align: center;
+    font-size: 1.5em;
+    border: 1px solid;
+    border-radius: 5px;
+
+}
+
+.questions-form-label {
+
+    font-family: 'Roboto', sans-serif;
+
+    margin: 5px 5px 5px;
+}
+
+.question-form-h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 400px;
+    margin-bottom: 20px;
+}

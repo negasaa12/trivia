@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useMemo } from "react";
-
+import "./Question.css";
 
 
 const Question = ({ question, incorrect_answers, correct_answer, nextQuestion }) => {
@@ -53,18 +53,21 @@ const Question = ({ question, incorrect_answers, correct_answer, nextQuestion })
     return (
         <>
             <h2>{cleanedQuestion}?</h2>
-            <form onSubmit={handleSubmit}>
-                {choices.map((choice, index) => (
-                    <div key={index}>
-                        <input type="radio" name="choice" value={choice} onChange={handleInputChange} />
-                        <label>{choice}</label>
-                    </div>
-                ))}
-                <button> Check</button>
-            </form>
-            <p> {message}</p>
+            <div className="question-container">
+                <form onSubmit={handleSubmit}>
+                    {choices.map((choice, index) => (
+                        <div key={index}>
+                            <input type="radio" name="choice" value={choice} onChange={handleInputChange} />
+                            <label>{choice}</label>
+                        </div>
+                    ))}
+                    <button>Check</button>
+                </form>
+                <p>{message}</p>
+            </div>
         </>
     );
+
 }
 
 export default Question
