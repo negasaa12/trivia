@@ -35,10 +35,10 @@ const QuizGame = ({ questionsArr }) => {
     return (
 
         <>
-            <h1 class="display-1" >Welcome To The {oneQuestion.category} Trivia</h1>
-            <div>
+            <h1 class="display-1" className="question-form-h1"  >Welcome To The {oneQuestion.category} Trivia</h1>
+            <div  >
                 {oneQuestion && (
-                    <Question
+                    <Question class="d-flex justify-content-center align-items-center"
                         question={oneQuestion.question}
                         correct_answer={oneQuestion.correct_answer}
                         incorrect_answers={oneQuestion.incorrect_answers}

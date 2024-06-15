@@ -1,0 +1,46 @@
+.form-check-input {
+
+    color: rgb(108, 163, 163);
+}
+
+.form-check-label {
+    font-size: 20px;
+    margin-left: 10px;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.message-p {
+
+    color: rgb(0, 0, 0);
+    display: table;
+    /* border: 1px solid rgb(255, 0, 0); */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: auto 500px;
+}
+
+.message-correct-p {
+
+    color: rgb(255, 255, 255);
+    display: table;
+    border: 1px solid rgb(19, 235, 11);
+    background-color: green;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: auto 500px;
+}
+
+
+.message-wrong-p {
+
+    color: rgb(255, 255, 255);
+    display: table;
+    border: 1px solid rgb(226, 2, 2);
+    background-color: red;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: auto 500px;
+}

@@ -10,7 +10,7 @@ const Question = ({ question, incorrect_answers, correct_answer, nextQuestion })
     const [message, setMessage] = useState("Choose your answer")
 
     const [inputValue, setInputValue] = useState('');
-
+    const [style, setStyle] = useState("message-p")
     function randomize(arr) {
         let shuffledArr = [];
 
@@ -33,14 +33,20 @@ const Question = ({ question, incorrect_answers, correct_answer, nextQuestion })
         e.preventDefault();
         if (inputValue === correct_answer) {
             setMessage("CORRECT")
+            setStyle("message-correct-p")
+
             nextQuestion(true);
             setTimeout(() => {
                 setMessage("Choose your answer");
+                setStyle("message-p")
             }, 1000)
         } else {
             setMessage("Wrong");
+            setStyle("message-wrong-p")
             setTimeout(() => {
                 setMessage("Choose your answer");
+                setStyle("message-p")
+
             }, 1000)
         }
     };
@@ -51,20 +57,24 @@ const Question = ({ question, incorrect_answers, correct_answer, nextQuestion })
         setInputValue(event.target.value);
     };
     return (
-        <>
-            <h2>{cleanedQuestion}?</h2>
-            <div className="question-container">
+        <>  <div class="container text-center">
+            <h2 class="display-5 " >{cleanedQuestion}?</h2>
+            <div class="d-flex justify-content-center align-items-center" >
                 <form onSubmit={handleSubmit}>
                     {choices.map((choice, index) => (
-                        <div key={index}>
-                            <input type="radio" name="choice" value={choice} onChange={handleInputChange} />
-                            <label>{choice}</label>
+                        <div class="form-check" key={index}>
+                            <input class="form-check-input" type="radio" name="choice" value={choice} onChange={handleInputChange} />
+                            <label class="form-check-label">{choice}</label>
                         </div>
                     ))}
-                    <button>Check</button>
+                    <button class="btn btn-info m-3">Check</button>
                 </form>
-                <p>{message}</p>
+
             </div>
+            <p className={style}>{message}</p>
+        </div>
+
+
         </>
     );
 
