@@ -30,6 +30,19 @@
     animation: wave 2s ease-in-out infinite;
 }
 
+.question-form-error-h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 400px;
+    margin-bottom: 20px;
+    animation: wave 2s ease-in-out infinite;
+    background-color: rgb(221, 176, 52);
+    margin-left: 200px;
+    margin-right: 200px;
+    border-radius: 5px;
+    color: white;
+}
+
 @keyframes wave {
     0% {
         transform: translateY(0);

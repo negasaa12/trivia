@@ -5,12 +5,13 @@ import ChooseQuestionsForm from "./ChooseQuestionForm";
 import { trivia_categories } from "../TriviaCategories";
 import QuizGame from "../QuizGame";
 import axios from "axios";
-
-
+import GameOver from "./GameOver";
+import { useNavigate } from "react-router-dom";
 const RoutePaths = () => {
 
 
-
+    const navigate = useNavigate();
+    const [score, setscore] = useState(0);
     const initalState = {
 
         difficulty: "",
@@ -53,7 +54,19 @@ const RoutePaths = () => {
             return null;
         }
     };
-    // console.log("ROUTH PATH QUESTIONS ", questions);
+
+    const handleGameScore = (answer, attempts) => {
+        console.log("answer ==>", answer, "attemps ====", attempts)
+
+
+        if (answer === "correct" && attempts < 3) {
+            setscore(score + 100);
+        } else if (attempts == 2) {
+            navigate('/over')
+        }
+
+    };
+
 
     return (
         <>
@@ -61,9 +74,8 @@ const RoutePaths = () => {
 
             <Routes>
                 <Route exact path="/" element={<ChooseQuestionsForm handleQuestions={handleQuestions} />}></Route>
-                <Route exact path="/quiz" element={<QuizGame questionsArr={questions} />}></Route>
-
-
+                <Route exact path="/quiz" element={<QuizGame questionsArr={questions} handleGameScore={handleGameScore} score={score} />}></Route>
+                <Route exact path="/over" element={<GameOver score={score} />} ></Route>
 
 
             </Routes>

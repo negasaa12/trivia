@@ -3,14 +3,16 @@ import { useState, useMemo } from "react";
 import "./Question.css";
 
 
-const Question = ({ question, incorrect_answers, correct_answer, nextQuestion }) => {
+const Question = ({ question, incorrect_answers, correct_answer, nextQuestion, handleGameScore }) => {
 
 
 
-    const [message, setMessage] = useState("Choose your answer")
+    const [message, setMessage] = useState("")
 
     const [inputValue, setInputValue] = useState('');
-    const [style, setStyle] = useState("message-p")
+    const [style, setStyle] = useState("text-center")
+    const [attempts, setattempts] = useState(0);
+
     function randomize(arr) {
         let shuffledArr = [];
 
@@ -28,29 +30,35 @@ const Question = ({ question, incorrect_answers, correct_answer, nextQuestion })
         return str.replace(/[^a-zA-Z0-9 _-]/g, '');
     }
     const cleanedQuestion = removeSpecialCharacters(question);
+
+
     const handleSubmit = (e) => {
 
         e.preventDefault();
         if (inputValue === correct_answer) {
-            setMessage("CORRECT")
-            setStyle("message-correct-p")
-
+            handleGameScore("correct", attempts);
+            setMessage("CORRECT");
+            setStyle("bg-success text-center  text-light");
+            setattempts(0);
             nextQuestion(true);
             setTimeout(() => {
                 setMessage("Choose your answer");
-                setStyle("message-p")
+                setStyle("text-center")
             }, 1000)
+
         } else {
             setMessage("Wrong");
-            setStyle("message-wrong-p")
+            setattempts(attempts + 1);
+            handleGameScore("wrong", attempts)
+            setStyle("bg-danger text-center text-light")
             setTimeout(() => {
                 setMessage("Choose your answer");
-                setStyle("message-p")
+                setStyle("text-center")
 
             }, 1000)
         }
     };
-
+    console.log("attempts", attempts);
     const choices = useMemo(() => randomize([...incorrect_answers, correct_answer]), [incorrect_answers, correct_answer]);
 
     const handleInputChange = (event) => {
@@ -58,11 +66,11 @@ const Question = ({ question, incorrect_answers, correct_answer, nextQuestion })
     };
     return (
         <>  <div class="container text-center">
-            <h2 class="display-5 " >{cleanedQuestion}?</h2>
+            <h1 class="display-5 " >{cleanedQuestion}?</h1>
             <div class="d-flex justify-content-center align-items-center" >
-                <form onSubmit={handleSubmit}>
+                <form class="m-3" onSubmit={handleSubmit}>
                     {choices.map((choice, index) => (
-                        <div class="form-check" key={index}>
+                        <div class="form-check m-2" key={index}>
                             <input class="form-check-input" type="radio" name="choice" value={choice} onChange={handleInputChange} />
                             <label class="form-check-label">{choice}</label>
                         </div>

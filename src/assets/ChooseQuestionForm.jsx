@@ -69,10 +69,31 @@ const ChooseQuestionsForm = ({ handleQuestions }) => {
     // console.log("CATEGORIES FROM FILE", trivia_categories);
     return (
         <>
-            <div class="container text-center">
+            <div class="container text-center ">
+
+                <h1 class="display-3 mt-4"> Trivia Game</h1>
+
+                <h2 class="display-6 m-2">Welcome to our thrilling trivia game! Here's how to play: </h2>
+
+                <div class="container-md">
+
+                    <ul class="list-unstyled">
+                        <li class="mt-4">Aim to answer as many questions correctly as you can.</li>
+                        <li class="mt-4">You have up to three tries per question to get the right answer.</li>
+                        <li class="mt-4">If you miss three questions overall, the game will end. </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="container text-center" >
                 {message ?
-                    <h1 className="question-form-h1">{message}</h1> :
-                    <h1 className="question-form-h1">PICK YOUR TRIVIA</h1>
+                    <h3 className="question-form-error-h1">{message}</h3> :
+                    <h3 className="question-form-h1">PICK YOUR TRIVIA</h3>
                 }
 
                 <div class="d-flex justify-content-center " >
@@ -97,7 +118,6 @@ const ChooseQuestionsForm = ({ handleQuestions }) => {
                     </form>
                 </div>
             </div>
-            {/* <p>Category: {inputValue.category}, Difficulty: {inputValue.difficulty}</p> */}
 
 
         </>
