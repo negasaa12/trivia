@@ -28,7 +28,7 @@
     background-color: green;
     border-radius: 5px;
     display: flex;
-
+    justify-content: center;
 
 }
 
@@ -41,6 +41,6 @@
     background-color: red;
     border-radius: 5px;
     display: flex;
-
-
+    justify-content: center;
+    margin: auto 500px;
 }

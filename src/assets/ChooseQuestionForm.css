@@ -1,4 +1,4 @@
-.questions-form {
+/* .questions-form {
 
     text-align: center;
     font-size: 1.5em;
@@ -9,38 +9,89 @@
     padding-bottom: 5px;
 
 
+} */
+
+/*   container with the intro of the game and explanation*/
+.container.text-center.form {
+    color: aliceblue;
+    margin-bottom: 50px;
+}
+
+.container-info {
+    margin-top: 30px;
+    padding-bottom: 15px;
+
 }
 
 .questions-form-label {
 
-    font-family: 'Roboto', sans-serif;
-
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
     animation: wave 2s ease-in-out infinite;
+    color: white;
+    margin-bottom: 8px;
+    padding-top: 5px;
 }
 
 .form-select {
-    color: saddlebrown;
+    color: rgb(235, 174, 130);
 }
 
 .question-form-h1 {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    margin-top: 400px;
-    margin-bottom: 20px;
-    animation: wave 2s ease-in-out infinite;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50px;
+    color: rgb(141, 101, 202);
+
 }
 
 .question-form-error-h1 {
     font-family: 'Roboto', sans-serif;
-    text-align: center;
-    margin-top: 400px;
-    margin-bottom: 20px;
-    animation: wave 2s ease-in-out infinite;
+    font-size: 50px;
+    margin-bottom: 8px;
     background-color: rgb(221, 176, 52);
     margin-left: 200px;
     margin-right: 200px;
     border-radius: 5px;
     color: white;
+}
+
+.container.question {
+
+    margin: auto;
+}
+
+.container.form {
+
+    border-radius: 10px;
+    background-color: rgb(141, 101, 202);
+    max-width: 1000px;
+    padding-left: 60px;
+    padding-right: 60px;
+
+}
+
+option {
+
+    background-color: rgb(240, 233, 143);
+
+}
+
+.question-button {
+    font-family: sans-serif;
+    font-weight: bold;
+    color: rgb(141, 101, 202);
+    ;
+    background-color: rgb(250, 238, 67);
+    margin: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    animation: wave 1s ease-in-out infinite;
 }
 
 @keyframes wave {

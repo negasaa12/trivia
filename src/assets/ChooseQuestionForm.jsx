@@ -69,56 +69,56 @@ const ChooseQuestionsForm = ({ handleQuestions }) => {
     // console.log("CATEGORIES FROM FILE", trivia_categories);
     return (
         <>
-            <div class="container text-center ">
+            <div class="container">
+                <div class="container text-center form">
 
-                <h1 class="display-3 mt-4"> Trivia Game</h1>
+                    <h1 class="display-3 mt-5 mb-5"> Trivia Game</h1>
 
-                <h2 class="display-6 m-2">Welcome to our thrilling trivia game! Here's how to play: </h2>
+                    <h2 class="display-6 m-2">Welcome to our thrilling trivia game! Here's how to play: </h2>
 
-                <div class="container-md">
+                    <div class="container-info">
+                        <p> Aim to answer as many questions correctly as you can.</p>
+                        <p> You have up to three tries per question to get the right answer.</p>
+                        <p> If you miss three questions overall, the game will end.</p>
 
-                    <ul class="list-unstyled">
-                        <li class="mt-4">Aim to answer as many questions correctly as you can.</li>
-                        <li class="mt-4">You have up to three tries per question to get the right answer.</li>
-                        <li class="mt-4">If you miss three questions overall, the game will end. </li>
-                    </ul>
+
+                    </div>
+
 
                 </div>
 
 
-            </div>
+
+                <div class="container text-center" >
 
 
+                    <div class="container question" >
+                        {message ?
+                            <h3 className="question-form-error-h1">{message}</h3> :
+                            <h3 className="question-form-h1">PICK YOUR TRIVIA</h3>
+                        }
+                        <form class="container form" onSubmit={handleSubmit}>
+                            <label className="questions-form-label" htmlFor="category">Select Category:</label>
+                            <select class="form-select" aria-label="Default select example" id="category" onChange={handleInputChange} name="category" value={inputValue.category}>
+                                <option value="">Select</option>
+                                {categories.map((category) => (
+                                    <option key={category.id} value={category.name}>{category.name}</option>
+                                ))}
+                            </select>
 
-            <div class="container text-center" >
-                {message ?
-                    <h3 className="question-form-error-h1">{message}</h3> :
-                    <h3 className="question-form-h1">PICK YOUR TRIVIA</h3>
-                }
+                            <label htmlFor="difficulty" className="questions-form-label">Select Difficulty:</label>
+                            <select class="form-select" aria-label="Default select example" id="difficulty" onChange={handleInputChange} name="difficulty" value={inputValue.difficulty}>
+                                <option value="">Select</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
 
-                <div class="d-flex justify-content-center " >
-                    <form className="questions-form" onSubmit={handleSubmit}>
-                        <label className="questions-form-label" htmlFor="category">Select Category:</label>
-                        <select class="form-select" aria-label="Default select example" id="category" onChange={handleInputChange} name="category" value={inputValue.category}>
-                            <option value="">Select</option>
-                            {categories.map((category) => (
-                                <option key={category.id} value={category.name}>{category.name}</option>
-                            ))}
-                        </select>
-
-                        <label htmlFor="difficulty" className="questions-form-label">Select Difficulty:</label>
-                        <select class="form-select" aria-label="Default select example" id="difficulty" onChange={handleInputChange} name="difficulty" value={inputValue.difficulty}>
-                            <option value="">Select</option>
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-
-                        <button class="btn btn-info m-3 " type="submit">Ready</button>
-                    </form>
+                            <button class="question-button" type="submit">Ready</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-
 
         </>
     )
